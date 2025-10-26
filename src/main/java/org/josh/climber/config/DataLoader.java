@@ -1,8 +1,8 @@
 package org.josh.climber.config;
 
 import jakarta.annotation.PostConstruct;
-import org.josh.climber.model.User;
-import org.josh.climber.model.Session;
+import org.josh.climber.model.UserModel;
+import org.josh.climber.model.SessionModel;
 import org.josh.climber.repository.UserRepository;
 import org.josh.climber.repository.SessionRepository;
 import org.springframework.stereotype.Component;
@@ -23,10 +23,10 @@ public class DataLoader {
     @PostConstruct
     public void seedData() {
         if (userRepo.count() == 0) {
-            List<User> users = createDummyUsers();
+            List<UserModel> users = createDummyUsers();
             userRepo.saveAll(users);
 
-            List<Session> sessions = createDummySessions(users);
+            List<SessionModel> sessions = createDummySessions(users);
             sessionRepo.saveAll(sessions);
 
             System.out.println("Dummy users and sessions inserted successfully!");
@@ -35,8 +35,8 @@ public class DataLoader {
         }
     }
 
-    private List<User> createDummyUsers() {
-        User user1 = User.builder()
+    private List<UserModel> createDummyUsers() {
+        UserModel user1 = UserModel.builder()
                 .username("josh_m")
                 .email("josh@example.com")
                 .avatarUrl("https://example.com/avatars/josh.png")
@@ -44,7 +44,7 @@ public class DataLoader {
                 .createdAt(LocalDateTime.of(2025, 10, 25, 14, 0))
                 .build();
 
-        User user2 = User.builder()
+        UserModel user2 = UserModel.builder()
                 .username("climb_amy")
                 .email("amy@example.com")
                 .avatarUrl("https://example.com/avatars/amy.png")
@@ -52,7 +52,7 @@ public class DataLoader {
                 .createdAt(LocalDateTime.of(2025, 10, 25, 15, 0))
                 .build();
 
-        User user3 = User.builder()
+        UserModel user3 = UserModel.builder()
                 .username("alex_rocks")
                 .email("alex@example.com")
                 .avatarUrl("https://example.com/avatars/alex.png")
@@ -63,8 +63,8 @@ public class DataLoader {
         return List.of(user1, user2, user3);
     }
 
-    private List<Session> createDummySessions(List<User> users) {
-        Session session1 = Session.builder()
+    private List<SessionModel> createDummySessions(List<UserModel> users) {
+        SessionModel session1 = SessionModel.builder()
                 .user(users.get(0))
                 .sessionDate(LocalDateTime.of(2025, 10, 25, 16, 0))
                 .durationMinutes(120)
@@ -72,7 +72,7 @@ public class DataLoader {
                 .createdAt(LocalDateTime.of(2025, 10, 25, 18, 0))
                 .build();
 
-        Session session2 = Session.builder()
+        SessionModel session2 = SessionModel.builder()
                 .user(users.get(1))
                 .sessionDate(LocalDateTime.of(2025, 10, 26, 10, 0))
                 .durationMinutes(90)
@@ -80,7 +80,7 @@ public class DataLoader {
                 .createdAt(LocalDateTime.of(2025, 10, 26, 12, 0))
                 .build();
 
-        Session session3 = Session.builder()
+        SessionModel session3 = SessionModel.builder()
                 .user(users.get(2))
                 .sessionDate(LocalDateTime.of(2025, 10, 27, 17, 30))
                 .durationMinutes(150)

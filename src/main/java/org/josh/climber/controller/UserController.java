@@ -1,6 +1,6 @@
 package org.josh.climber.controller;
 
-import org.josh.climber.model.User;
+import org.josh.climber.model.UserModel;
 import org.josh.climber.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +17,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<UserModel> getAllUsers(){
         return repo.findAll();
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user){
+    public UserModel createUser(@RequestBody UserModel user){
         return repo.save(user);
     }
 }

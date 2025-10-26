@@ -1,7 +1,7 @@
 package org.josh.climber.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "session")
@@ -17,18 +18,20 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Session {
+public class SessionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long sessionId;
 
+    /* FK */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"sessions", "bio", "createdAt"})
-    private User user;
+    private UserModel user;
 
-
-    // Add gym id later
+    @OneToMany(mappedBy = "session", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<AttemptsModel> attempts;
 
     private LocalDateTime sessionDate;
     private int durationMinutes;
@@ -36,4 +39,6 @@ public class Session {
     private String notes;
     private LocalDateTime createdAt;
 
+    /* TODO */
+    // Add gym id later
 }

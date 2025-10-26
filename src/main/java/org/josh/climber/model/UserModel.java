@@ -12,23 +12,33 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
 
     @Column(nullable = false, unique = true)
     private String username;
-//    @Column(nullable = false)
-//    private String passwordHash;
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String email;
     private String avatarUrl;
     @Column(columnDefinition = "TEXT")
     private String bio;
     private LocalDateTime createdAt;
 
+    /* FK */
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonManagedReference
-    private List<Session> sessions;
+    private List<SessionModel> sessions;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<AttemptsModel> attempts;
+
+
+
+    /* TODO */
+    // Implement this:
+    //@Column(nullable = false)
+    //private String passwordHash;
 }

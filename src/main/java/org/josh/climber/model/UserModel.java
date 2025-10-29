@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,23 +13,35 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
 
     @Column(nullable = false, unique = true)
     private String username;
-//    @Column(nullable = false)
-//    private String passwordHash;
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String email;
     private String avatarUrl;
     @Column(columnDefinition = "TEXT")
     private String bio;
     private LocalDateTime createdAt;
 
+    /* FK */
+    @Builder.Default
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonManagedReference
-    private List<Session> sessions;
+    private List<SessionModel> sessions = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<AttemptModel> attempts = new ArrayList<>();
+
+
+
+    /* TODO */
+    // Implement this:
+    //@Column(nullable = false)
+    //private String passwordHash;
 }

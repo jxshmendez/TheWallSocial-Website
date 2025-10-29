@@ -1,7 +1,7 @@
 package org.josh.climber.controller;
 
-import org.josh.climber.model.Session;
-import org.josh.climber.repository.SessionRepository;
+import org.josh.climber.model.SessionModel;
+import org.josh.climber.service.SessionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +10,19 @@ import java.util.List;
 @RequestMapping("/api/sessions")
 public class SessionController {
 
-    private final SessionRepository repo;
+    private final SessionService sessionService;
 
-    public SessionController(SessionRepository repo) {
-        this.repo = repo;
+    public SessionController(SessionService sessionService) {
+        this.sessionService = sessionService;
     }
 
     @GetMapping
-    public List<Session> getAllSessions(){
-        return repo.findAll();
+    public List<SessionModel> getAllSessions(){
+        return sessionService.getAllSessions();
     }
 
     @PostMapping
-    public Session createSession(@RequestBody Session session){
-        return repo.save(session);
+    public SessionModel createSession(@RequestBody SessionModel session){
+        return sessionService.createSession(session);
     }
 }

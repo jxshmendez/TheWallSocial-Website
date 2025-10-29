@@ -1,6 +1,6 @@
 package org.josh.climber.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,32 +8,40 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "session")
+@Table(name = "attempts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Session {
+public class AttemptModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long sessionId;
+    private long attemptId;
 
+    /* FK */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"sessions", "bio", "createdAt"})
-    private User user;
+    private UserModel user;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "session_id")
+    @JsonIgnoreProperties({"notes", "createdAt"})
+    private SessionModel session;
 
-    // Add gym id later
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "route_id")
+    @JsonIgnoreProperties({"setter"})
+    private RouteModel routes;
 
-    private LocalDateTime sessionDate;
-    private int durationMinutes;
+    private int attemptTime;
     @Column(columnDefinition = "TEXT")
     private String notes;
-    private LocalDateTime createdAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ResultType result;
 
 }

@@ -2,6 +2,7 @@ package org.josh.climber.controller;
 
 import org.josh.climber.model.AttemptModel;
 import org.josh.climber.repository.AttemptRepository;
+import org.josh.climber.service.AttemptService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +11,19 @@ import java.util.List;
 @RequestMapping("/api/attempts")
 public class AttemptController {
 
-    private final AttemptRepository repo;
+    private final AttemptService attemptService;
 
-    public AttemptController(AttemptRepository repo) {
-        this.repo = repo;
+    public AttemptController(AttemptService attemptService) {
+        this.attemptService = attemptService;
     }
 
     @GetMapping
     public List<AttemptModel> getAllAttempts(){
-        return repo.findAll();
+        return attemptService.getAllAttempts();
     }
 
     @PostMapping
     public AttemptModel createAttempt(@RequestBody AttemptModel attempt){
-        return repo.save(attempt);
+        return attemptService.createAttempt(attempt);
     }
 }

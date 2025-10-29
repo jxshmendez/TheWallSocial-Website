@@ -5,6 +5,7 @@ public enum ResultType {
     FALL,        // fell off before finishing
     PROJECT,     // still working on it
     FLASH,       // completed on first attempt
-    ONSIGHT      // completed without prior knowledge
+    ONSIGHT,     // completed without prior knowledge
+    FAIL
 }
 

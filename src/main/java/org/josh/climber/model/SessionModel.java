@@ -1,5 +1,6 @@
 package org.josh.climber.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -27,17 +28,17 @@ public class SessionModel {
     /* FK */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"sessions", "bio", "createdAt"})
+    @JsonBackReference("user-session")
     private UserModel user;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "gym_id")
-    @JsonIgnoreProperties({"location", "latitude", "longitude"})
+    @JsonBackReference("gym-session")
     private GymModel gym;
 
     @Builder.Default
     @OneToMany(mappedBy = "session", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonManagedReference("attempt-session")
     private List<AttemptModel> attempts = new ArrayList<>();
 
     private LocalDateTime sessionDate;

@@ -20,9 +20,15 @@ public class UserService {
         return userRepo.findAll();
     }
 
+    public UserModel findByUsername(String username){
+        return userRepo.findByUsername(username);
+    }
+
     public UserModel createUser(UserModel user){
         return userRepo.save(user);
     }
+
+
 
 
 }

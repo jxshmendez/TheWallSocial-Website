@@ -31,7 +31,7 @@ public class GymModel {
 
     @Builder.Default
     @OneToMany(mappedBy = "gym", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonManagedReference("gym-session")
     private List<SessionModel> sessions = new ArrayList<>();
 
     @Builder.Default

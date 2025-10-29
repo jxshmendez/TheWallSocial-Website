@@ -3,7 +3,6 @@ package org.josh.climber.service;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class UserService {
         return userRepo.findAll();
     }
 
-    public UserModel createUser(@RequestBody UserModel user){
+    public UserModel createUser(UserModel user){
         return userRepo.save(user);
     }
 

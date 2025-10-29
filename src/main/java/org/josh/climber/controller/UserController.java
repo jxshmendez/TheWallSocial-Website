@@ -1,7 +1,6 @@
 package org.josh.climber.controller;
 
 import org.josh.climber.model.UserModel;
-import org.josh.climber.repository.UserRepository;
 import org.josh.climber.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

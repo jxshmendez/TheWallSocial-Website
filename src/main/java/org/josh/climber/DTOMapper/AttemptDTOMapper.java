@@ -5,7 +5,7 @@ import org.josh.climber.model.AttemptModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AttempDTOMapper {
+public class AttemptDTOMapper {
 
     public AttemptDTO toDTO(AttemptModel attempt){
         return new AttemptDTO(
@@ -14,5 +14,13 @@ public class AttempDTOMapper {
                 attempt.getNotes(),
                 attempt.getResult()
         );
+    }
+
+    public AttemptModel toEntity(AttemptDTO dto){
+        return AttemptModel.builder()
+                .attemptTime(dto.attemptTime())
+                .notes(dto.notes())
+                .result(dto.result())
+                .build();
     }
 }

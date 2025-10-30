@@ -29,7 +29,17 @@ public class AttemptController {
     }
 
     @PostMapping
-    public AttemptModel createAttempt(@Valid @RequestBody AttemptModel attempt){
+    public AttemptDTO createAttempt(@Valid @RequestBody AttemptDTO attempt){
         return attemptService.createAttempt(attempt);
+    }
+
+    @PutMapping("/{attemptId}")
+    public AttemptDTO updateAttempt(@PathVariable Long attemptId, @Valid @RequestBody AttemptDTO attempt){
+        return attemptService.updateAttempt(attemptId, attempt);
+    }
+
+    @DeleteMapping("/{attemptId}")
+    public void deleteAttempt(@PathVariable Long attemptId){
+        attemptService.deleteAttempt(attemptId);
     }
 }

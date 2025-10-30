@@ -32,7 +32,7 @@ public class RouteModel {
 
     /* FK */
     @Builder.Default
-    @OneToMany(mappedBy = "routes", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "routes", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("route-attempt")
     private List<AttemptModel> attempts = new ArrayList<>();
 

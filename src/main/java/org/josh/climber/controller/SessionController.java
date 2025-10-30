@@ -1,5 +1,6 @@
 package org.josh.climber.controller;
 
+import jakarta.validation.Valid;
 import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.model.SessionModel;
 import org.josh.climber.service.SessionService;
@@ -31,7 +32,17 @@ public class SessionController {
     }
 
     @PostMapping
-    public SessionModel createSession(@RequestBody SessionModel session){
+    public SessionDTO createSession(@RequestBody SessionDTO session){
         return sessionService.createSession(session);
+    }
+
+    @PutMapping("/{sessionId}")
+    public SessionDTO updateSession(@PathVariable Long sessionId, @Valid @RequestBody SessionDTO session){
+        return sessionService.updateService(sessionId, session);
+    }
+
+    @DeleteMapping("/{sessionId}")
+    public void deleteSession(@PathVariable Long sessionId){
+        sessionService.deleteSession(sessionId);
     }
 }

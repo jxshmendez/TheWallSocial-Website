@@ -1,5 +1,6 @@
 package org.josh.climber.service;
 
+import jakarta.validation.Valid;
 import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.DTOMapper.SessionDTOMapper;
 import org.josh.climber.model.SessionModel;
@@ -32,8 +33,27 @@ public class SessionService {
                 .toList();
     }
 
-    public SessionModel createSession(SessionModel session){
-        return sessionRepo.save(session);
+    public SessionDTO createSession(SessionDTO dto){
+        SessionModel session = mapper.toEntity(dto);
+        SessionModel saved = sessionRepo.save(session);
+        return mapper.toDTO(saved);
+    }
+
+    public SessionDTO updateService(Long sessionId, @Valid SessionDTO session) {
+        SessionModel existing = sessionRepo.findBySessionId(sessionId)
+                .orElseThrow(() -> new RuntimeException("Session not found: " + sessionId));
+
+        existing.setSessionDate(session.sessionDate());
+        existing.setDurationMinutes(session.durationMinutes());
+        existing.setNotes(session.notes());
+        SessionModel updated = sessionRepo.save(existing);
+        return mapper.toDTO(updated);
+    }
+
+    public void deleteSession(Long sessionId) {
+        if(!sessionRepo.existsById(sessionId)){
+            throw new RuntimeException("Session not found: " + sessionId);
+        }
     }
 }
 

@@ -47,7 +47,6 @@ public class RouteService {
         existing.setGrade(route.grade());
         existing.setStyle(route.style());
         existing.setSetter(route.setter());
-        existing.setCreatedAt(route.createdAt());
 
         RouteModel updated = routeRepo.save(existing);
         return mapper.toDTO(updated);

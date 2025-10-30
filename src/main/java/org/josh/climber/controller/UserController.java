@@ -1,5 +1,6 @@
 package org.josh.climber.controller;
 
+import jakarta.validation.Valid;
 import org.josh.climber.DTO.UserDTO;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.service.UserService;
@@ -28,7 +29,17 @@ public class UserController {
     }
 
     @PostMapping
-    public UserModel createUser(@RequestBody UserModel user){
+    public UserDTO createUser(@RequestBody UserDTO user){
         return userService.createUser(user);
+    }
+
+    @PutMapping("/{userId}")
+    public UserDTO updateUser(@PathVariable Long userId, @Valid @RequestBody UserDTO user){
+        return userService.updateUser(userId, user);
+    }
+
+    @DeleteMapping("/{userId}")
+    public void deleteUser(@PathVariable Long userId){
+        userService.deleteUser(userId);
     }
 }

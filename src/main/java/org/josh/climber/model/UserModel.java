@@ -29,19 +29,20 @@ public class UserModel {
 
     /* FK */
     @Builder.Default
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("user-session")
     private List<SessionModel> sessions = new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("user-attempt")
     private List<AttemptModel> attempts = new ArrayList<>();
 
 
 
-    /* TODO */
-    // Implement this:
-    //@Column(nullable = false)
-    //private String passwordHash;
+    /* TODO
+     Implement this:
+    @Column(nullable = false)
+    private String passwordHash;
+     */
 }

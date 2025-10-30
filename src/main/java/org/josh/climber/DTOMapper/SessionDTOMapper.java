@@ -16,4 +16,15 @@ public class SessionDTOMapper {
                 session.getCreatedAt()
         );
     }
+
+    public SessionModel toEntity(SessionDTO dto){
+        return SessionModel.builder()
+                .sessionDate(dto.sessionDate())
+                .durationMinutes(dto.durationMinutes())
+                .notes(dto.notes())
+                .build();
+
+    }
+
+
 }

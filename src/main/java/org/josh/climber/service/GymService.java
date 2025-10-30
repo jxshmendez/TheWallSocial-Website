@@ -6,8 +6,6 @@ import org.josh.climber.DTOMapper.GymDTOMapper;
 import org.josh.climber.model.GymModel;
 import org.josh.climber.repository.GymRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -42,14 +40,13 @@ public class GymService {
     }
 
     public GymDTO updateGym(Long gymId, @Valid GymDTO gym) {
-        GymModel exisiting = gymRepo.findByGymId(gymId)
+        GymModel existing = gymRepo.findByGymId(gymId)
                 .orElseThrow(() -> new RuntimeException("Gym not found: " + gymId));
 
-        exisiting.setGymId(gym.gymId());
-        exisiting.setName(gym.name());
-        exisiting.setLocation(gym.location());
+        existing.setName(gym.name());
+        existing.setLocation(gym.location());
 
-        GymModel updated = gymRepo.save(exisiting);
+        GymModel updated = gymRepo.save(existing);
         return mapper.toDTO(updated);
     }
 

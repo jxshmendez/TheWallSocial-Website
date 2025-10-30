@@ -30,12 +30,12 @@ public class GymModel {
     private Double longitude;
 
     @Builder.Default
-    @OneToMany(mappedBy = "gym", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "gym", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("gym-session")
     private List<SessionModel> sessions = new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "gym", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "gym", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<RouteModel> routes = new ArrayList<>();
 

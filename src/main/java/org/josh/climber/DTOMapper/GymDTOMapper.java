@@ -17,7 +17,6 @@ public class GymDTOMapper {
 
     public GymModel toEntity(GymDTO dto){
         return GymModel.builder()
-                .gymId(dto.gymId())
                 .name(dto.name())
                 .location(dto.location())
                 .build();

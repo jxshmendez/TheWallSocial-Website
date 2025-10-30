@@ -17,4 +17,15 @@ public class RouteDTOMapper {
                 route.getCreatedAt()
         );
     }
+
+    public RouteModel toEntity(RouteDTO dto) {
+        return RouteModel.builder()
+                .routeId(dto.routeId())
+                .name(dto.name())
+                .grade(dto.grade())
+                .style(dto.style())
+                .setter(dto.setter())
+                .createdAt(dto.createdAt())
+                .build();
+    }
 }

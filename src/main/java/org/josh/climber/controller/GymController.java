@@ -1,6 +1,8 @@
 package org.josh.climber.controller;
 
+import jakarta.validation.Valid;
 import org.josh.climber.DTO.GymDTO;
+import org.josh.climber.DTO.RouteDTO;
 import org.josh.climber.model.GymModel;
 import org.josh.climber.service.GymService;
 import org.springframework.stereotype.Controller;
@@ -29,8 +31,17 @@ public class GymController {
     }
 
     @PostMapping
-    public GymModel createGym(GymModel gym){
+    public GymDTO createGym(@Valid @RequestBody GymDTO gym){
         return gymService.createGym(gym);
     }
 
+    @PutMapping("/{gymId}")
+    public GymDTO updateGym(@PathVariable Long gymId, @Valid @RequestBody GymDTO gym){
+        return gymService.updateGym(gymId, gym);
+    }
+
+    @DeleteMapping("/{gymId}")
+    public void deleteGym(@PathVariable Long gymId){
+        gymService.deleteGym(gymId);
+    }
 }

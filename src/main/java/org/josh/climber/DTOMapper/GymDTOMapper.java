@@ -8,9 +8,18 @@ import org.springframework.stereotype.Component;
 public class GymDTOMapper {
 
     public GymDTO toDTO(GymModel gym){
-        return new GymDTO(gym.getGymId(),
-        gym.getName(),
-        gym.getLocation()
+        return new GymDTO(
+                gym.getGymId(),
+                gym.getName(),
+                gym.getLocation()
         );
+    }
+
+    public GymModel toEntity(GymDTO dto){
+        return GymModel.builder()
+                .gymId(dto.gymId())
+                .name(dto.name())
+                .location(dto.location())
+                .build();
     }
 }

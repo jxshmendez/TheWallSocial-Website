@@ -1,7 +1,6 @@
 package org.josh.climber.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +23,11 @@ public class SessionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long sessionId;
+    private LocalDateTime sessionDate;
+    private int durationMinutes;
+    @Column(columnDefinition = "TEXT")
+    private String notes;
+    private LocalDateTime createdAt;
 
     /* FK */
     @ManyToOne(fetch = FetchType.EAGER)
@@ -41,11 +45,7 @@ public class SessionModel {
     @JsonManagedReference("attempt-session")
     private List<AttemptModel> attempts = new ArrayList<>();
 
-    private LocalDateTime sessionDate;
-    private int durationMinutes;
-    @Column(columnDefinition = "TEXT")
-    private String notes;
-    private LocalDateTime createdAt;
+
 
 
 }

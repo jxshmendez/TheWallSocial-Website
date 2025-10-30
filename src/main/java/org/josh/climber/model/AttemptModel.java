@@ -20,6 +20,12 @@ public class AttemptModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long attemptId;
+    private int attemptTime;
+    @Column(columnDefinition = "TEXT")
+    private String notes;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ResultType result;
 
     /* FK */
     @ManyToOne(fetch = FetchType.EAGER)
@@ -37,12 +43,6 @@ public class AttemptModel {
     @JsonBackReference("route-attempt")
     private RouteModel routes;
 
-    private int attemptTime;
-    @Column(columnDefinition = "TEXT")
-    private String notes;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ResultType result;
 
 }

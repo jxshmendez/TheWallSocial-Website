@@ -30,6 +30,11 @@ public class GymController {
         return gymService.getAllGyms();
     }
 
+    @GetMapping("/{gymId}/routes")
+    public List<RouteDTO> getRoutesByGym(@PathVariable Long gymId){
+        return gymService.getRoutesByGymId(gymId);
+    }
+
     @PostMapping
     public GymDTO createGym(@Valid @RequestBody GymDTO gym){
         return gymService.createGym(gym);

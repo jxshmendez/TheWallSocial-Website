@@ -1,6 +1,7 @@
 package org.josh.climber.controller;
 
 import jakarta.validation.Valid;
+import org.josh.climber.DTO.AttemptDTO;
 import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.model.SessionModel;
 import org.josh.climber.service.SessionService;
@@ -29,6 +30,11 @@ public class SessionController {
     @GetMapping("/{sessionId}")
     public SessionDTO findBySessionId(@PathVariable Long sessionId){
         return sessionService.findBySessionId(sessionId);
+    }
+
+    @GetMapping("/{sessionId}/attempts")
+    public List<AttemptDTO> getAttemptsBySessionId(@PathVariable Long sessionId){
+        return sessionService.getAttemptsBySessionId(sessionId);
     }
 
     @PostMapping

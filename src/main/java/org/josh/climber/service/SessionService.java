@@ -1,7 +1,9 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
+import org.josh.climber.DTO.AttemptDTO;
 import org.josh.climber.DTO.SessionDTO;
+import org.josh.climber.DTOMapper.AttemptDTOMapper;
 import org.josh.climber.DTOMapper.SessionDTOMapper;
 import org.josh.climber.model.SessionModel;
 import org.josh.climber.repository.SessionRepository;
@@ -14,10 +16,12 @@ public class SessionService {
 
     private final SessionRepository sessionRepo;
     private final SessionDTOMapper mapper;
+    private final AttemptDTOMapper attemptMapper;
 
-    public SessionService(SessionRepository sessionRepo, SessionDTOMapper mapper) {
+    public SessionService(SessionRepository sessionRepo, SessionDTOMapper mapper, AttemptDTOMapper attemptMapper) {
         this.sessionRepo = sessionRepo;
         this.mapper = mapper;
+        this.attemptMapper = attemptMapper;
     }
 
     public SessionDTO findBySessionId(Long sessionId){
@@ -54,6 +58,16 @@ public class SessionService {
         if(!sessionRepo.existsById(sessionId)){
             throw new RuntimeException("Session not found: " + sessionId);
         }
+    }
+
+    public List<AttemptDTO> getAttemptsBySessionId(Long sessionId){
+        SessionModel session = sessionRepo.findBySessionId(sessionId)
+                .orElseThrow(() -> new RuntimeException("Session not found: " + sessionId));
+
+        return session.getAttempts()
+                .stream()
+                .map(attemptMapper::toDTO)
+                .toList();
     }
 }
 

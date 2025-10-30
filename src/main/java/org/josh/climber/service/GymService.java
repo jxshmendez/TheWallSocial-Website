@@ -2,7 +2,9 @@ package org.josh.climber.service;
 
 import jakarta.validation.Valid;
 import org.josh.climber.DTO.GymDTO;
+import org.josh.climber.DTO.RouteDTO;
 import org.josh.climber.DTOMapper.GymDTOMapper;
+import org.josh.climber.DTOMapper.RouteDTOMapper;
 import org.josh.climber.model.GymModel;
 import org.josh.climber.repository.GymRepository;
 import org.springframework.stereotype.Service;
@@ -14,10 +16,12 @@ public class GymService {
 
     private final GymRepository gymRepo;
     private final GymDTOMapper mapper;
+    private final RouteDTOMapper routeMapper;
 
-    public GymService(GymRepository gymRepo, GymDTOMapper mapper) {
+    public GymService(GymRepository gymRepo, GymDTOMapper mapper, RouteDTOMapper routeMapper) {
         this.gymRepo = gymRepo;
         this.mapper = mapper;
+        this.routeMapper = routeMapper;
     }
 
     public GymDTO findByGymId(Long gymId){
@@ -54,7 +58,16 @@ public class GymService {
         if(!gymRepo.existsById(gymId)){
             throw new RuntimeException("Gym not found: " + gymId);
         }
-
         gymRepo.deleteById(gymId);
+    }
+
+    public List<RouteDTO> getRoutesByGymId(Long gymId){
+        GymModel gym = gymRepo.findByGymId(gymId)
+                .orElseThrow(() -> new RuntimeException("Gym not found: " + gymId));
+
+        return gym.getRoutes()
+                .stream()
+                .map(routeMapper::toDTO)
+                .toList();
     }
 }

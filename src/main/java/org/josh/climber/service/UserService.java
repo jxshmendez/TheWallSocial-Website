@@ -1,8 +1,11 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
+import org.apache.catalina.Session;
 import org.apache.catalina.User;
+import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.DTO.UserDTO;
+import org.josh.climber.DTOMapper.SessionDTOMapper;
 import org.josh.climber.DTOMapper.UserDTOMapper;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.repository.UserRepository;
@@ -16,10 +19,12 @@ public class UserService {
 
     private final UserRepository userRepo;
     private final UserDTOMapper mapper;
+    private final SessionDTOMapper sessionMapper;
 
-    public UserService(UserRepository userRepo, UserDTOMapper mapper) {
+    public UserService(UserRepository userRepo, UserDTOMapper mapper, SessionDTOMapper sessionMapper) {
         this.userRepo = userRepo;
         this.mapper = mapper;
+        this.sessionMapper = sessionMapper;
     }
 
     public List<UserDTO> getAllUsers(){
@@ -59,5 +64,15 @@ public class UserService {
         }
 
         userRepo.deleteById(userId);
+    }
+
+    public List<SessionDTO> getSessionByUser(String username){
+        UserModel user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found " + username));
+
+        return user.getSessions()
+                .stream()
+                .map(sessionMapper::toDTO)
+                .toList();
     }
 }

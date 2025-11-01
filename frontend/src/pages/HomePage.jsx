@@ -1,11 +1,11 @@
 export default function HomePage() {
     return (
-        <div className="w-full text-center">
+        <div className="">
             <section className={"min-h-screen flex flex-col items-center justify-center"}>
                 <h1 className={"anton-sc-regular text-[8rem] font-bold"}>
                     <span className="text-[#ff5317]">FOR THOSE WHO LIVE ON THE</span>
                 </h1>
-                <h1 className="anton-sc-regular text-[12rem] font-bold text-[#3256d2] animate-fadeIn">
+                <h1 className="anton-sc-regular text-[12rem] font-bold text-[#3256d2]">
                     WALL
                 </h1>
                 <p className="mt-2 text-gray-700 font-bold">Built For Climbers, By Climbers</p>

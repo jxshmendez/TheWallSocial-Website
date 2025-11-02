@@ -4,7 +4,10 @@ import GymsPage from "./pages/GymsPage";
 import UsersPage from "./pages/UsersPage";
 import RoutesPage from "./pages/RoutesPage";
 import JoinPage from "./pages/JoinPage";
+import AboutPage from "./pages/AboutPage";
+import FeaturesPage from "./pages/FeaturesPage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 
 export default function App() {
@@ -14,12 +17,13 @@ export default function App() {
             <Navbar />
             <Routes>
                 <Route path={"/"} element={<HomePage />} />
-                <Route path={"/gyms"} element={<GymsPage />} />
-                <Route path={"/users"} element={<UsersPage />} />
+                <Route path={"/features"} element={<FeaturesPage />} />
+                <Route path={"/about"} element={<AboutPage s/>} />
                 <Route path="/routes" element={<RoutesPage />} />
                 <Route path="/waitlist" element={<JoinPage />} />
             </Routes>
         </Router>
+        <Footer />
     </div>
     );
 

@@ -1,4 +1,4 @@
-export default function JoinPage(){
+export default function FeaturesPage() {
     return (
         <>
             <section className={"min-h-screen"}></section>

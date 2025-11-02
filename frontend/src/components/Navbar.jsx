@@ -9,12 +9,11 @@ export default function Navbar() {
             <div className="relative flex items-center justify-between border-b border-[#ff5317] w-[97%] mx-auto pb-3">
                 <div className="flex gap-10">
                     <NavLink to="/" className={linkClasses}>Home</NavLink>
-                    <NavLink to="/gyms" className={linkClasses}>Gyms</NavLink>
-                    <NavLink to="/users" className={linkClasses}>Users</NavLink>
-                    <NavLink to="/routes" className={linkClasses}>Routes</NavLink>
+                    <NavLink to="/features" className={linkClasses}>Features</NavLink>
+                    <NavLink to="/about" className={linkClasses}>About</NavLink>
                 </div>
 
-                <h1 className="anton-sc-regular text-5xl text-[#3256d2] absolute left-1/2 transform -translate-x-1/2 font-bold tracking-wide">
+                <h1 className="anton-sc-regular text-5xl text-[#ff5317] absolute left-1/2 transform -translate-x-1/2 font-bold tracking-wide">
                     WALL
                 </h1>
 

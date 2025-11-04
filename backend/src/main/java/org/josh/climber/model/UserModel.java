@@ -21,11 +21,15 @@ public class UserModel {
     @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
+    private String password;
+    @Column(nullable = false)
     private String email;
     private String avatarUrl;
     @Column(columnDefinition = "TEXT")
     private String bio;
     private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 
     /* FK */
     @Builder.Default
@@ -40,9 +44,4 @@ public class UserModel {
 
 
 
-    /* TODO
-     Implement this:
-    @Column(nullable = false)
-    private String passwordHash;
-     */
 }

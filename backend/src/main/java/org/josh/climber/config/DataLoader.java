@@ -58,6 +58,7 @@ public class DataLoader {
                 .username("josh_m")
                 .email("josh@example.com")
                 .avatarUrl("https://example.com/avatars/josh.png")
+                .password("Hello12")
                 .bio("Climber based in Edinburgh. Working on endurance and technique.")
                 .createdAt(LocalDateTime.of(2025, 10, 25, 14, 0))
                 .build();
@@ -67,6 +68,7 @@ public class DataLoader {
                 .email("amy@example.com")
                 .avatarUrl("https://example.com/avatars/amy.png")
                 .bio("Indoor bouldering addict. Training for Font trip!")
+                .password("Hello123")
                 .createdAt(LocalDateTime.of(2025, 10, 25, 15, 0))
                 .build();
 
@@ -74,6 +76,7 @@ public class DataLoader {
                 .username("alex_rocks")
                 .email("alex@example.com")
                 .avatarUrl("https://example.com/avatars/alex.png")
+                .password("Hello122223")
                 .bio("Lead climber. Loves multi-pitch routes and espresso shots.")
                 .createdAt(LocalDateTime.of(2025, 10, 25, 16, 30))
                 .build();

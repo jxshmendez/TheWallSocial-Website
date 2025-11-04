@@ -1,2 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Trade+Winds&display=swap');
 @import "tailwindcss";
 
+
+.anton-sc-regular {
+    font-family: "Anton SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.trade-winds-regular {
+    font-family: "Trade Winds", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.noto-sans-display {
+    font-family: "Noto Sans Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}

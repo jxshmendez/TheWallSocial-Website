@@ -39,7 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // Check if header exists and starts with "Bearer"
         if (authHeader == null || !authHeader.startsWith("Bearer")){
-            filterChain.doFilter(request, response); // why
+            filterChain.doFilter(request, response);
             return;
         }
 

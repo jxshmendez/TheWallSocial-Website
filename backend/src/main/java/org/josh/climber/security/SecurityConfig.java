@@ -39,7 +39,7 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();  // Q what does this do
+        return config.getAuthenticationManager();
     }
 
     @Bean

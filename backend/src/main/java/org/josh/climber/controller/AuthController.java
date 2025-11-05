@@ -33,6 +33,8 @@ public class AuthController {
     public ResponseEntity<?> register(@RequestBody AuthRequestDTO request){
         if(userRepo.findByUsername(request.username()).isPresent()){
             return ResponseEntity.badRequest().body("Username already taken");
+        } else if(userRepo.findByEmail(request.email()).isPresent()){
+            return ResponseEntity.badRequest().body("Email already taken");
         }
 
         UserModel user = UserModel.builder()

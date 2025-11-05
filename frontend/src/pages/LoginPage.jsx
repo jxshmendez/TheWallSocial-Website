@@ -1,8 +1,10 @@
 import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import{useAuth} from "../context/AuthContext";
 
 export default function LoginPage(){
+    const {login} = useAuth();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: "",
@@ -20,11 +22,10 @@ export default function LoginPage(){
         try{
             const res = await axios.post("/api/auth/login", formData);
             const token = res.data.token;
-
-            localStorage.setItem("token", token);
+            login(token);
             setMessage(res.data.message || "Login Successful");
 
-            setTimeout(() => navigate("/dashboard"),1500);
+            setTimeout(() => navigate("/dashboard"),1000);
 
         } catch (err){
             setMessage(err.response?.data || "Login Failed")

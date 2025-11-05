@@ -8,25 +8,24 @@ import LoggedInNavbar from "./components/LoggedInNavbar";
 import DashboardPage from "./pages/DashboardPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import {isLoggedIn} from "./utils/auth";
+import {useAuth} from "./context/AuthContext";
 
 export default function App() {
-    const loggedIn = isLoggedIn();
+    const {loggedIn} = useAuth();
 
     return (
     <div className="min-h-screen bg-[#fef6e0] text-black">
         <Router>
             {loggedIn ? <LoggedInNavbar/> : <Navbar/>}
-
             <Routes>
                 <Route path={"/"} element={<HomePage />} />
+                <Route path={"/dashboard"} element={<DashboardPage/>}/>
                 <Route path={"/features"} element={<FeaturesPage />} />
                 <Route path={"/about"} element={<AboutPage s/>} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path={"/dashboard"} element={<DashboardPage/>}/>
-            </Routes>
 
+            </Routes>
             {loggedIn? null : <Footer/>}
         </Router>
     </div>

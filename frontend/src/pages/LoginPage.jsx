@@ -25,7 +25,7 @@ export default function LoginPage(){
             login(token);
             setMessage(res.data.message || "Login Successful");
 
-            setTimeout(() => navigate("/dashboard"),1000);
+            navigate("/dashboard");
 
         } catch (err){
             setMessage(err.response?.data || "Login Failed")

@@ -1,9 +1,0 @@
-org.josh.climber
-org.josh.climber.config
-org.josh.climber.controller
-org.josh.climber.DTO
-org.josh.climber.DTOMapper
-org.josh.climber.model
-org.josh.climber.repository
-org.josh.climber.security
-org.josh.climber.service

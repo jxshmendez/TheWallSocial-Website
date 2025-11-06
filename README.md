@@ -1,4 +1,4 @@
-# Wall Climbing Social
+# 'Wall' Climbing Social
 
 - ![Build Status](https://img.shields.io/github/actions/workflow/status/jxshmendez/Climber/ci.yml)
 - ![Language](https://img.shields.io/github/languages/top/jxshmendez/Climber)

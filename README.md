@@ -7,6 +7,9 @@
 - ![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot-%236DB33F)
 - ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-%234169E1)
 
+# Roadmap
+![Roadmap 1](./diagrams/Roadmap-1.png)
+### Last updated: 06/11/2025
 
 # Database
 ### Below is the current ERD for the Climber database schema:

@@ -2,22 +2,22 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
     const linkClasses = ({ isActive }) =>
-        isActive ? "text-[#E35335]" : "text-black";
+        isActive ? "text-[#E35335]" : "text-white";
 
     return (
-        <nav className="noto-sans-display text-xl w-full  text-black p-4 border-b border-transparent fixed">
-            <div className="flex items-center justify-center border border-[#ff5317] w-[25%] mx-auto p-3 rounded-4xl">
+        <nav className="text-xl w-full  text-white p-4 fixed">
+            <div className="flex items-center justify-center bg-black w-[25%] mx-auto p-3 rounded-4xl">
 
                 {/* Center - Nav links */}
-                <div className="flex gap-10">
-                    <NavLink to={"/"} className="inter text-[#ff5317]">
+                <div className="flex gap-10 inter">
+                    <NavLink to={"/"} className="text-[#ff5317]">
                         WALL
                     </NavLink>
                     <NavLink to="/features" className={linkClasses}>Features</NavLink>
                     <NavLink to="/about" className={linkClasses}>About</NavLink>
                     <NavLink
                         to="/register"
-                        className="inter flex items-center bg-[#ff5317] text-black px-4
+                        className="flex items-center bg-[#ff5317] text-white px-4
                           rounded-4xl hover:bg-[#FFDEAD] transition">
                         JOIN
                     </NavLink>

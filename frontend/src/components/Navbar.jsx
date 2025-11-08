@@ -6,7 +6,7 @@ export default function Navbar() {
 
     return (
         <nav className="text-xl w-full  text-white p-4 fixed">
-            <div className="flex items-center justify-center bg-black w-[25%] mx-auto p-3 rounded-4xl">
+            <div className="flex items-center justify-center bg-black w-[450px] mx-auto p-3 rounded-4xl">
 
                 {/* Center - Nav links */}
                 <div className="flex gap-10 inter">

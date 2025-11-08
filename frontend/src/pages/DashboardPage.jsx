@@ -18,10 +18,23 @@ export default function DashboardPage(){
     }, []);
 
     return (
-        <section className={"min-h-screen flex items-start justify-end bg-[#fef6e0] text-black p-6"}>
-            <h1 className={"text-6xl anton-sc-regular text-[#ff5317]"}>
-                Hello, {username || "Climber"}
-            </h1>
+        <section className="min-h-screen flex flex-col items-center bg-[#fef6e0] text-black overflow-y-auto">
+            <div className="w-full max-w-xl flex flex-col gap-6 mt-10 p-4">
+                {/* Example post cards */}
+                <div className="bg-white shadow-md rounded-2xl p-4">
+                    <h2 className="font-bold text-xl text-[#ff5317]">Post Title</h2>
+                    <p className="mt-2 text-gray-700">Content</p>
+                </div>
+                <div className="bg-white shadow-md rounded-2xl p-4">
+                    <h2 className="font-bold text-xl text-[#ff5317]">Post Title</h2>
+                    <p className="mt-2 text-gray-700">Content</p>
+                </div>
+                <div className="bg-white shadow-md rounded-2xl p-4">
+                    <h2 className="font-bold text-xl text-[#ff5317]">Post Title</h2>
+                    <p className="mt-2 text-gray-700">Content</p>
+                </div>
+
+            </div>
         </section>
     )
 }

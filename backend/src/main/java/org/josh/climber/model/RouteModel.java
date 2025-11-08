@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.josh.climber.model.posts.PostsModel;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -31,6 +32,11 @@ public class RouteModel {
     private LocalDateTime createdAt;
 
     /* FK */
+    @Builder.Default
+    @OneToMany(mappedBy = "routes", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("route-posts")
+    private List<PostsModel> posts = new ArrayList<>();
+
     @Builder.Default
     @OneToMany(mappedBy = "routes", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("route-attempt")

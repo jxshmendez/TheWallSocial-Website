@@ -2,6 +2,7 @@ package org.josh.climber.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.josh.climber.model.posts.PostsModel;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,6 +33,11 @@ public class UserModel {
     private UserRole userRole;
 
     /* FK */
+    @Builder.Default
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("user-posts")
+    private List<PostsModel> posts = new ArrayList<>();
+
     @Builder.Default
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("user-session")

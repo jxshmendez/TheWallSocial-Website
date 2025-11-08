@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.josh.climber.model.posts.PostsModel;
 
 
 import java.time.LocalDateTime;
@@ -29,7 +30,15 @@ public class SessionModel {
     private String notes;
     private LocalDateTime createdAt;
 
+
+
     /* FK */
+    @Builder.Default
+    @OneToMany(mappedBy = "session", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("session-posts")
+    private List<PostsModel> post = new ArrayList<>();
+
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     @JsonBackReference("user-session")

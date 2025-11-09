@@ -11,9 +11,6 @@ public class PostsDTOMapper {
         return new PostDTO(
                 post.getPostId(),
                 post.getCaption(),
-                post.getMedia(),
-                post.getMediaUrl(),
-                post.getThumbnailUrl(),
                 post.getVisibility(),
                 post.getCreatedAt(),
                 post.getUpdatedAt(),

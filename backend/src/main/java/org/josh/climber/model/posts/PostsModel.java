@@ -1,6 +1,7 @@
 package org.josh.climber.model.posts;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -27,13 +30,6 @@ public class PostsModel {
     private Long postId;
     @Column(columnDefinition = "TEXT")
     private String caption;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private MediaType media;
-    @Column(columnDefinition = "TEXT")
-    private String mediaUrl;
-    @Column(columnDefinition = "TEXT")
-    private String thumbnailUrl;
     @Enumerated(EnumType.STRING)
     private Visibility visibility;
     @CreatedDate
@@ -42,6 +38,11 @@ public class PostsModel {
     private LocalDateTime updatedAt;
 
     /* FK */
+    @Builder.Default
+    @OneToMany(mappedBy = "posts", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<PostLikesModel> postLikes = new ArrayList<>();
+
     @JsonBackReference("session-posts")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "session_id")

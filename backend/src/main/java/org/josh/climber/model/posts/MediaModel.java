@@ -1,5 +1,6 @@
 package org.josh.climber.model.posts;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,4 +25,11 @@ public class MediaModel {
     private String mediaUrl;
     @Column(columnDefinition = "TEXT")
     private String thumbnailUrl;
+
+    /* FK */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    @JsonBackReference("post-media")
+    private PostsModel post;
+
 }

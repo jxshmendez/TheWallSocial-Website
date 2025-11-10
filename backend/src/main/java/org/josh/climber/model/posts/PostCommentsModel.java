@@ -27,6 +27,10 @@ public class PostCommentsModel {
     private String postCommentText;
     @CreatedDate
     private LocalDateTime createdAt;
+    @Column(nullable = false)
+    @Builder.Default
+    private boolean deleted = false;
+
 
     @JsonBackReference("posts-postComments")
     @ManyToOne(fetch = FetchType.LAZY)

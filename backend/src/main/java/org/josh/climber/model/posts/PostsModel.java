@@ -12,13 +12,21 @@ import org.josh.climber.model.SessionModel;
 import org.josh.climber.model.UserModel;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "posts")
+@EntityListeners(AuditingEntityListener.class)
+@Table(
+        name = "posts",
+        indexes = {
+                @Index(columnList = "user_id"),
+                @Index(columnList = "createdAt")
+        }
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +39,9 @@ public class PostsModel {
     @Column(columnDefinition = "TEXT")
     private String caption;
     @Enumerated(EnumType.STRING)
-    private Visibility visibility;
+    @Column(nullable = false)
+    @Builder.Default
+    private Visibility visibility = Visibility.PUBLIC;
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate
@@ -43,6 +53,10 @@ public class PostsModel {
     @JsonManagedReference
     private List<PostCommentsModel> postComments = new ArrayList<>();
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("post-media")
+    private List<MediaModel> mediaList = new ArrayList<>();
+
     @Builder.Default
     @OneToMany(mappedBy = "posts", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
@@ -51,15 +65,15 @@ public class PostsModel {
     @JsonBackReference("session-posts")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "session_id")
-    SessionModel session;
+    private SessionModel session;
 
     @JsonBackReference("route-posts")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "route_id")
-    RouteModel routes;
+    private RouteModel routes;
 
     @JsonBackReference("user-posts")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    UserModel user;
+    private UserModel user;
 }

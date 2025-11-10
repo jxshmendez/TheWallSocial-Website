@@ -60,6 +60,13 @@ public class UserModel {
     @JsonManagedReference("user-attempt")
     private List<AttemptModel> attempts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("user-following")
+    private List<FollowModel> following = new ArrayList<>();
+
+    @OneToMany(mappedBy = "following", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("user-followers")
+    private List<FollowModel> followers = new ArrayList<>();
 
 
 }

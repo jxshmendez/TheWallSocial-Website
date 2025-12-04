@@ -34,7 +34,6 @@ public class UserModel {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
-
     /* FK */
     @Builder.Default
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

@@ -5,8 +5,10 @@ import org.apache.catalina.Session;
 import org.apache.catalina.User;
 import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.DTO.UserDTO;
+import org.josh.climber.DTO.UserPreviewDTO;
 import org.josh.climber.DTOMapper.SessionDTOMapper;
 import org.josh.climber.DTOMapper.UserDTOMapper;
+import org.josh.climber.DTOMapper.UserPreviewDTOMapper;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -23,17 +25,21 @@ public class UserService {
     private final UserRepository userRepo;
     private final UserDTOMapper mapper;
     private final SessionDTOMapper sessionMapper;
+    private final UserPreviewDTOMapper previewMapper;
 
-    public UserService(UserRepository userRepo, UserDTOMapper mapper, SessionDTOMapper sessionMapper) {
+    public UserService(UserRepository userRepo, UserDTOMapper mapper,
+                       SessionDTOMapper sessionMapper,
+                       UserPreviewDTOMapper previewMapper) {
         this.userRepo = userRepo;
         this.mapper = mapper;
         this.sessionMapper = sessionMapper;
+        this.previewMapper = previewMapper;
     }
 
-    public List<UserDTO> getAllUsers(){
+    public List<UserPreviewDTO> getAllUsers(){
         return userRepo.findAll()
                 .stream()
-                .map(mapper::toDTO)
+                .map(previewMapper::toDTO)
                 .toList();
     }
 
@@ -41,6 +47,19 @@ public class UserService {
         UserModel user = userRepo.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found: " + username));
         return mapper.toDTO(user);
+    }
+
+    public UserPreviewDTO getPreviewById(Long userId) {
+        UserModel user = userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found " + userId));
+        return previewMapper.toDTO(user);
+    }
+
+
+    public UserPreviewDTO getPreviewByUsername(String username) {
+        UserModel user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found: " + username));
+        return previewMapper.toDTO(user);
     }
 
     public UserDTO createUser(UserDTO dto){

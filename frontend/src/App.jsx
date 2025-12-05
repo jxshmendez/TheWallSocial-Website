@@ -4,13 +4,15 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import AboutPage from "./pages/AboutPage";
 import FeaturesPage from "./pages/FeaturesPage";
 import LoginPage from "./pages/LoginPage";
-import LoggedInNavbar from "./components/LoggedInNavbar";
+import LoggedInNavbar from "./components/LoggedInNavbar.js";
 import DashboardPage from "./pages/DashboardPage";
 import GuestRoute from "./utils/GuestRoute";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import {useAuth} from "./context/AuthContext";
+import UserProfilePage from "./pages/UserProfilePage";
+
 
 export default function App() {
     const {loggedIn} = useAuth();
@@ -21,9 +23,10 @@ export default function App() {
             {loggedIn ? <LoggedInNavbar/> : <Navbar/>}
             <Routes>
                 <Route path={"/"} element={<HomePage />} />
-                <Route path={"/dashboard"} element={<DashboardPage/>}/>
                 <Route path={"/features"} element={<FeaturesPage />} />
                 <Route path={"/about"} element={<AboutPage s/>} />
+                {/* PUBLIC USER PROFILE PAGE */}
+                <Route path="/users/:userId" element={<UserProfilePage />} />
                 <Route
                     path="/register"
                     element={

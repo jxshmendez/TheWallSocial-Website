@@ -56,7 +56,7 @@ export default function FollowButton({targetUserId}: FollowButtonProps) {
             const token = localStorage.getItem("token");
 
             await axios.post(
-                `/api/follow/users/${userId}/follow`,
+                `/api/follow/users/${targetUserId}/follow`,
                 {},
                 {
                     headers: { Authorization: `Bearer ${token}` }
@@ -101,7 +101,7 @@ export default function FollowButton({targetUserId}: FollowButtonProps) {
                     : "px-3 py-2 rounded bg-blue-600 text-white"
             }
             >
-            {isFollowing ? "Following" : "Unfollow"}
+            {isFollowing ? "Unfollow" : "Follow"}
         </button>
     );
 }

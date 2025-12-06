@@ -4,5 +4,7 @@ public record UserPreviewDTO(
         Long userId,
         String username,
         String bio,
-        String avatarUrl
+        String avatarUrl,
+        Integer followingCount,
+        Integer followerCount
 ){}

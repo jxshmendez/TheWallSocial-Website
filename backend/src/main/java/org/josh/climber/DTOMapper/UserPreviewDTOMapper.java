@@ -13,7 +13,10 @@ public class UserPreviewDTOMapper {
                 user.getUserId(),
                 user.getUsername(),
                 user.getBio(),
-                user.getAvatarUrl()
+                user.getAvatarUrl(),
+                user.getFollowing().size(),
+                user.getFollowers().size()
+
         );
     }
 }

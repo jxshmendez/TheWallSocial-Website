@@ -5,7 +5,9 @@ import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.DTO.UserDTO;
 import org.josh.climber.DTO.UserPreviewDTO;
 import org.josh.climber.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,6 +57,15 @@ public class UserController {
     @PutMapping("/{userId}")
     public UserDTO updateUser(@PathVariable Long userId, @Valid @RequestBody UserDTO user){
         return userService.updateUser(userId, user);
+    }
+
+    @PatchMapping("/bio")
+    public UserPreviewDTO updateBio(@RequestBody String bio) {
+        Long userId = (Long) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+
+        return userService.updateBio(userId, bio);
     }
 
     @DeleteMapping("/{userId}")

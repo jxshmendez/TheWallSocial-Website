@@ -1,8 +1,6 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
-import org.apache.catalina.Session;
-import org.apache.catalina.User;
 import org.josh.climber.DTO.SessionDTO;
 import org.josh.climber.DTO.UserDTO;
 import org.josh.climber.DTO.UserPreviewDTO;
@@ -68,15 +66,23 @@ public class UserService {
         return mapper.toDTO(saved);
     }
 
-    public UserDTO updateUser(Long userId, @Valid UserDTO user) {
-        UserModel exisiting = userRepo.findById(userId)
+    public UserPreviewDTO updateBio(Long userId, String bio){
+        UserModel existing = userRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found: " + userId));
-        exisiting.setUsername(user.username());
-        exisiting.setEmail(user.email());
-        exisiting.setAvatarUrl(user.avatarUrl());
-        exisiting.setBio(user.bio());
+        existing.setBio(bio);
+        UserModel updated = userRepo.save(existing);
+        return previewMapper.toDTO(updated);
+    }
 
-        UserModel updated = userRepo.save(exisiting);
+    public UserDTO updateUser(Long userId, @Valid UserDTO user) {
+        UserModel existing = userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found: " + userId));
+        existing.setUsername(user.username());
+        existing.setEmail(user.email());
+        existing.setAvatarUrl(user.avatarUrl());
+        existing.setBio(user.bio());
+
+        UserModel updated = userRepo.save(existing);
         return mapper.toDTO(updated);
     }
 

@@ -30,8 +30,6 @@ public class SessionModel {
     private String notes;
     private LocalDateTime createdAt;
 
-
-
     /* FK */
     @Builder.Default
     @OneToMany(mappedBy = "session", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

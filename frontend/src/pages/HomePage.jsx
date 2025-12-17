@@ -10,7 +10,7 @@ export default function HomePage() {
                 <h1 className={"anton-sc-regular text-[8rem] font-bold"}>
                     <span className="text-[#3256d2]">FOR THOSE WHO LIVE ON THE</span>
                 </h1>
-                <h1 className="anton-sc-regular text-[12rem] -m-15 pb-20 font-bold text-[#ff5317]">
+                <h1 className="anton-sc-regular text-[12rem] m-15 pb-20 font-bold text-[#ff5317]">
                     WALL
                 </h1>
                 <p className="mt-2 text-gray-700 font-bold">Built For Climbers, By Climbers</p>

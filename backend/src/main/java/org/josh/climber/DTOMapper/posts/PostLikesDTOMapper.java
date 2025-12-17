@@ -2,10 +2,12 @@ package org.josh.climber.DTOMapper.posts;
 
 import org.josh.climber.DTO.posts.PostLikesDTO;
 import org.josh.climber.model.posts.PostLikesModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PostLikesDTOMapper {
 
-    public static PostLikesDTO toDTO(PostLikesModel like){
+    public PostLikesDTO toDTO(PostLikesModel like){
         if (like == null) return null;
 
         return new PostLikesDTO(

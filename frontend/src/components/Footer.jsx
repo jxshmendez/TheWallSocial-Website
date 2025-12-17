@@ -5,7 +5,7 @@ export default function Footer() {
                 <h1 className={"font-bold text-2xl border-b-2 pt-4"}>THE WALL</h1>
                 <h2 className={"font-bold text-xl"}>UNDER DEVELOPMENT</h2>
                 <p className="mt-4 text-center">Copyright © 2025
-                    <a href="http://instagram.com/wall.social/">The Wall Social</a>.
+                    <a href="http://instagram.com/wall.social/"> The Wall Social</a>.
                     All rights reservered.
                 </p>
                 <div className="flex items-center gap-4 mt-5">

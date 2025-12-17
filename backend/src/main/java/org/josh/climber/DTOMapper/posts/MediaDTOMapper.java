@@ -2,10 +2,12 @@ package org.josh.climber.DTOMapper.posts;
 
 import org.josh.climber.DTO.posts.MediaDTO;
 import org.josh.climber.model.posts.MediaModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MediaDTOMapper {
 
-    public static MediaDTO toDTO(MediaModel media){
+    public MediaDTO toDTO(MediaModel media){
         if (media == null) return null;
 
         return new MediaDTO(

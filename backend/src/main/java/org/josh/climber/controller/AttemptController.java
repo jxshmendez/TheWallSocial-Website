@@ -2,7 +2,6 @@ package org.josh.climber.controller;
 
 import jakarta.validation.Valid;
 import org.josh.climber.DTO.AttemptDTO;
-import org.josh.climber.model.AttemptModel;
 import org.josh.climber.service.AttemptService;
 import org.springframework.web.bind.annotation.*;
 

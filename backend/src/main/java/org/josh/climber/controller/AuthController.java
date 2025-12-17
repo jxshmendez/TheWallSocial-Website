@@ -58,7 +58,14 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Invalid credentials");
         }
 
-        String token = jwtService.generateToken(user.getUsername());
-        return ResponseEntity.ok(Map.of("token", token));
+        String token = jwtService.generateToken(user);
+        return ResponseEntity.ok(
+                Map.of(
+                        "token", token,
+                        "userId", user.getUserId(),
+                        "username", user.getUsername()
+                )
+        );
+
     }
 }

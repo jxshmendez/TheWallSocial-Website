@@ -1,15 +1,13 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
-import {jwtDecode} from "jwt-decode";
-import {JwtPayload } from "../types/JwtPayload"
-import { UserPreviewDTO} from "../types/UserPreviewDTO";
+
 
 interface UpdateBioButtonProps {
     currentBio: string;
     onUpdated: (newBio: string) => void;
 }
 
-export default function UpdatedBioButton({
+export default function UpdateBioButton({
     currentBio,
     onUpdated
 } : UpdateBioButtonProps) {

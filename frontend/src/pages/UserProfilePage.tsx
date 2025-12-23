@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FollowButton from "../components/FollowButton";
 import { UserPreviewDTO } from "../types/UserPreviewDTO";
-import UpdatedBioButton from "../components/UpdateBioButton";
+import UpdateBioButton from "../components/UpdateBioButton";
 import { jwtDecode} from "jwt-decode";
 import { JwtPayload } from "../types/JwtPayload";
 
@@ -72,7 +72,7 @@ export default function UserProfilePage() {
                 onChange={loadUser}
             />
             {isOwnProfile && (
-                <UpdatedBioButton
+                <UpdateBioButton
                     currentBio={user.bio || ""}
                     onUpdated={(newBio) =>
                         setUser((prev) =>

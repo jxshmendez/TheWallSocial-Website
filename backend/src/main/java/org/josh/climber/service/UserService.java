@@ -10,7 +10,6 @@ import org.josh.climber.DTOMapper.UserPreviewDTOMapper;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.repository.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -74,6 +73,14 @@ public class UserService {
         return previewMapper.toDTO(updated);
     }
 
+    public UserPreviewDTO updateAvatar(Long userId, String avatarUrl) {
+        UserModel existing = userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found: " + userId));
+        existing.setAvatarUrl(avatarUrl);
+        UserModel updated = userRepo.save(existing);
+        return previewMapper.toDTO(updated);
+    }
+
     public UserDTO updateUser(Long userId, @Valid UserDTO user) {
         UserModel existing = userRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found: " + userId));
@@ -103,4 +110,5 @@ public class UserService {
                 .map(sessionMapper::toDTO)
                 .toList();
     }
+
 }

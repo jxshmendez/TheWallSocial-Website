@@ -61,11 +61,21 @@ public class UserController {
 
     @PatchMapping("/bio")
     public UserPreviewDTO updateBio(@RequestBody String bio) {
+
         Long userId = (Long) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
 
         return userService.updateBio(userId, bio);
+    }
+
+    @PatchMapping("/avatar")
+    public UserPreviewDTO updateAvatar(@RequestBody String avatarUrl){
+        Long userId = (Long) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+
+        return userService.updateAvatar(userId, avatarUrl);
     }
 
     @DeleteMapping("/{userId}")

@@ -30,7 +30,8 @@ public class SecurityConfig {
                                 "/api/auth/**",
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
-                                "/swagger-ui.html").permitAll() // Anyone can access login and register
+                                "/swagger-ui.html",
+                                "/actuator/**").permitAll() // Anyone can access login and register
                         .anyRequest().authenticated() // Other requests require JWT
                 )
                 .sessionManagement(session -> session

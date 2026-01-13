@@ -2,8 +2,8 @@ package org.josh.climber.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.josh.climber.DTO.posts.CreatePostDTO;
-import org.josh.climber.DTO.posts.PostDTO;
+import org.josh.climber.DTO.posts.request.CreatePostRequestDTO;
+import org.josh.climber.DTO.posts.response.PostDTO;
 import org.josh.climber.DTOMapper.posts.PostDTOMapper;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.model.posts.PostLikesModel;
@@ -61,7 +61,7 @@ public class PostService {
     /**
      * Create a new post
      */
-    public PostDTO createPost(CreatePostDTO dto, String username) {
+    public PostDTO createPost(CreatePostRequestDTO dto, String username) {
         UserModel user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("User not found: " + username));
 

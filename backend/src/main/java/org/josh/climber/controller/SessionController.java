@@ -1,11 +1,9 @@
 package org.josh.climber.controller;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.AttemptDTO;
-import org.josh.climber.DTO.SessionDTO;
-import org.josh.climber.model.SessionModel;
+import org.josh.climber.DTO.attempt.response.AttemptResponseDTO;
+import org.josh.climber.DTO.session.response.SessionDTO;
 import org.josh.climber.service.SessionService;
-import org.josh.climber.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +13,9 @@ import java.util.List;
 public class SessionController {
 
     private final SessionService sessionService;
-    private final UserService userService;
 
-    public SessionController(SessionService sessionService, UserService userService) {
+    public SessionController(SessionService sessionService) {
         this.sessionService = sessionService;
-        this.userService = userService;
     }
 
     @GetMapping
@@ -33,7 +29,7 @@ public class SessionController {
     }
 
     @GetMapping("/{sessionId}/attempts")
-    public List<AttemptDTO> getAttemptsBySessionId(@PathVariable Long sessionId){
+    public List<AttemptResponseDTO> getAttemptsBySessionId(@PathVariable Long sessionId){
         return sessionService.getAttemptsBySessionId(sessionId);
     }
 

@@ -1,6 +1,6 @@
 package org.josh.climber.DTOMapper;
 
-import org.josh.climber.DTO.SessionDTO;
+import org.josh.climber.DTO.session.response.SessionDTO;
 import org.josh.climber.model.SessionModel;
 import org.springframework.stereotype.Component;
 

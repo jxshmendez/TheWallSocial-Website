@@ -1,6 +1,6 @@
 package org.josh.climber.DTOMapper;
 
-import org.josh.climber.DTO.UserPreviewDTO;
+import org.josh.climber.DTO.user.response.UserPreviewDTO;
 import org.josh.climber.model.UserModel;
 import org.springframework.stereotype.Component;
 

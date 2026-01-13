@@ -1,10 +1,10 @@
-package org.josh.climber.DTO.posts;
+package org.josh.climber.DTO.posts.response;
 
 import org.josh.climber.model.posts.MediaType;
 
 public record MediaDTO(
         Long mediaId,
-        MediaType media,
+        MediaType mediaType,
         String mediaUrl,
         String thumbnailUrl
 ) {}

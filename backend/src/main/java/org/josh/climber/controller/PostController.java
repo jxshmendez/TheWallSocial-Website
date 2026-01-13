@@ -1,9 +1,8 @@
 package org.josh.climber.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.josh.climber.DTO.posts.PostDTO;
-import org.josh.climber.DTO.posts.CreatePostDTO;
-import org.josh.climber.model.UserModel;
+import org.josh.climber.DTO.posts.request.CreatePostRequestDTO;
+import org.josh.climber.DTO.posts.response.PostDTO;
 import org.josh.climber.service.PostService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +47,7 @@ public class PostController {
      * Create a new post
      */
     @PostMapping
-    public ResponseEntity<PostDTO> createPost(@RequestBody CreatePostDTO createPostDTO, Principal principal) {
+    public ResponseEntity<PostDTO> createPost(@RequestBody CreatePostRequestDTO createPostDTO, Principal principal) {
         // principal.getName() = username from JWT
         PostDTO post = postService.createPost(createPostDTO, principal.getName());
         return ResponseEntity.ok(post);

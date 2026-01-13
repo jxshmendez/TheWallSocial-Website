@@ -1,12 +1,11 @@
-package org.josh.climber.DTO;
+package org.josh.climber.DTO.session.response;
 
 import java.time.LocalDateTime;
 
 public record SessionDTO(
         Long sessionId,
         LocalDateTime sessionDate,
-        int durationMinutes,
+        Integer durationMinutes,
         String notes,
         LocalDateTime createdAt
-
 ) {}

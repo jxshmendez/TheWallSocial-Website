@@ -1,7 +1,7 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.RouteDTO;
+import org.josh.climber.DTO.route.response.RouteDTO;
 import org.josh.climber.DTOMapper.RouteDTOMapper;
 import org.josh.climber.model.RouteModel;
 import org.josh.climber.repository.RouteRepository;

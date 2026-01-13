@@ -1,6 +1,6 @@
 package org.josh.climber.DTOMapper.posts;
 
-import org.josh.climber.DTO.posts.PostDTO;
+import org.josh.climber.DTO.posts.response.PostDTO;
 import org.josh.climber.model.posts.PostsModel;
 import org.springframework.stereotype.Component;
 

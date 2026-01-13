@@ -1,4 +1,4 @@
-package org.josh.climber.DTO;
+package org.josh.climber.DTO.auth.request;
 
 public record AuthRequestDTO(
         String username,

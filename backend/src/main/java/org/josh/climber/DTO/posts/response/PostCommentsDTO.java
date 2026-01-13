@@ -1,9 +1,9 @@
-package org.josh.climber.DTO.posts;
+package org.josh.climber.DTO.posts.response;
 
 import java.time.LocalDateTime;
 
 public record PostCommentsDTO(
-        Long postCommentId,
+        Long postCommentsId,
         String postCommentText,
         LocalDateTime createdAt,
         Long postId,

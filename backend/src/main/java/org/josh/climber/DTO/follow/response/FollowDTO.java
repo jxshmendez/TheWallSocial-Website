@@ -1,4 +1,4 @@
-package org.josh.climber.DTO;
+package org.josh.climber.DTO.follow.response;
 
 import java.time.LocalDateTime;
 

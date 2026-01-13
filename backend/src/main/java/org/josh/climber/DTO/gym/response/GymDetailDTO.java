@@ -1,8 +1,8 @@
-package org.josh.climber.DTO;
+package org.josh.climber.DTO.gym.response;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record GymDTO(
+public record GymDetailDTO(
         Long gymId,
         @NotBlank String name,
         @NotBlank String location

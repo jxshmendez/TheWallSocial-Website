@@ -1,9 +1,7 @@
 package org.josh.climber.controller;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.RouteDTO;
-import org.josh.climber.model.RouteModel;
-import org.josh.climber.repository.RouteRepository;
+import org.josh.climber.DTO.route.response.RouteDTO;
 import org.josh.climber.service.RouteService;
 import org.springframework.web.bind.annotation.*;
 

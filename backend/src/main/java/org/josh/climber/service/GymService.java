@@ -1,8 +1,8 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.GymDTO;
-import org.josh.climber.DTO.RouteDTO;
+import org.josh.climber.DTO.gym.response.GymDetailDTO;
+import org.josh.climber.DTO.route.response.RouteDTO;
 import org.josh.climber.DTOMapper.GymDTOMapper;
 import org.josh.climber.DTOMapper.RouteDTOMapper;
 import org.josh.climber.model.GymModel;
@@ -27,26 +27,26 @@ public class GymService {
         this.routeMapper = routeMapper;
     }
 
-    public GymDTO findByGymId(Long gymId){
+    public GymDetailDTO findByGymId(Long gymId){
         GymModel gym = gymRepo.findByGymId(gymId)
                 .orElseThrow(() -> new RuntimeException("Gym not found: " + gymId));
         return mapper.toDTO(gym);
     }
 
-    public List<GymDTO> getAllGyms(){
+    public List<GymDetailDTO> getAllGyms(){
         return gymRepo.findAll()
                 .stream()
                 .map(mapper::toDTO)
                 .toList();
     }
 
-    public GymDTO createGym(GymDTO dto){
+    public GymDetailDTO createGym(GymDetailDTO dto){
         GymModel gym = mapper.toEntity(dto);
         GymModel saved = gymRepo.save(gym);
         return mapper.toDTO(saved);
     }
 
-    public GymDTO updateGym(Long gymId, @Valid GymDTO gym) {
+    public GymDetailDTO updateGym(Long gymId, @Valid GymDetailDTO gym) {
         GymModel existing = gymRepo.findByGymId(gymId)
                 .orElseThrow(() -> new RuntimeException("Gym not found: " + gymId));
 

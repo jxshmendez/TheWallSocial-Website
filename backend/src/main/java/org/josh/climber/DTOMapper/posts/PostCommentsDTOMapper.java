@@ -1,6 +1,6 @@
 package org.josh.climber.DTOMapper.posts;
 
-import org.josh.climber.DTO.posts.PostCommentsDTO;
+import org.josh.climber.DTO.posts.response.PostCommentsDTO;
 import org.josh.climber.model.posts.PostCommentsModel;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +14,9 @@ public class PostCommentsDTOMapper {
                 comment.getPostCommentsId(),
                 comment.getPostCommentText(),
                 comment.getCreatedAt(),
-                comment.getPosts().getPostId(),
-                comment.getUser().getUserId(),
-                comment.getUser().getUsername()
+                comment.getPosts() != null ? comment.getPosts().getPostId() : null,
+                comment.getUser() != null ? comment.getUser().getUserId() : null,
+                comment.getUser() != null ? comment.getUser().getUsername() : null
         );
     }
 }

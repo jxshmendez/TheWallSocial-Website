@@ -1,4 +1,4 @@
-package org.josh.climber.DTO.posts;
+package org.josh.climber.DTO.posts.response;
 
 public record PostLikesDTO(
         Long userId,

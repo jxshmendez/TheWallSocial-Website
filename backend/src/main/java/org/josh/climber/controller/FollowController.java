@@ -1,6 +1,6 @@
 package org.josh.climber.controller;
 
-import org.josh.climber.DTO.FollowDTO;
+import org.josh.climber.DTO.follow.response.FollowDTO;
 import org.josh.climber.service.FollowService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;

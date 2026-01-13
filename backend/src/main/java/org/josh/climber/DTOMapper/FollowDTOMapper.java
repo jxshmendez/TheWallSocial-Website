@@ -1,16 +1,20 @@
 package org.josh.climber.DTOMapper;
 
-import org.josh.climber.DTO.FollowDTO;
+import org.josh.climber.DTO.follow.response.FollowDTO;
 import org.josh.climber.model.FollowModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FollowDTOMapper {
-    public static FollowDTO toDTO(FollowModel follow) {
+    public FollowDTO toDTO(FollowModel follow) {
+        if (follow == null) return null;
+        
         return new FollowDTO(
                 follow.getFollowId(),
-                follow.getFollower().getUserId(),
-                follow.getFollower().getUsername(),
-                follow.getFollowing().getUserId(),
-                follow.getFollowing().getUsername(),
+                follow.getFollower() != null ? follow.getFollower().getUserId() : null,
+                follow.getFollower() != null ? follow.getFollower().getUsername() : null,
+                follow.getFollowing() != null ? follow.getFollowing().getUserId() : null,
+                follow.getFollowing() != null ? follow.getFollowing().getUsername() : null,
                 follow.getCreatedAt()
         );
     }

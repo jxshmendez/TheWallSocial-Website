@@ -1,9 +1,9 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.SessionDTO;
-import org.josh.climber.DTO.UserDTO;
-import org.josh.climber.DTO.UserPreviewDTO;
+import org.josh.climber.DTO.session.response.SessionDTO;
+import org.josh.climber.DTO.user.response.UserDTO;
+import org.josh.climber.DTO.user.response.UserPreviewDTO;
 import org.josh.climber.DTOMapper.SessionDTOMapper;
 import org.josh.climber.DTOMapper.UserDTOMapper;
 import org.josh.climber.DTOMapper.UserPreviewDTOMapper;
@@ -59,11 +59,6 @@ public class UserService {
         return previewMapper.toDTO(user);
     }
 
-    public UserDTO createUser(UserDTO dto){
-        UserModel user = mapper.toEntity(dto);
-        UserModel saved = userRepo.save(user);
-        return mapper.toDTO(saved);
-    }
 
     public UserPreviewDTO updateBio(Long userId, String bio){
         UserModel existing = userRepo.findById(userId)

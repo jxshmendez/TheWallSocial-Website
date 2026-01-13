@@ -1,4 +1,4 @@
-package org.josh.climber.DTO;
+package org.josh.climber.DTO.route.response;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,7 +1,7 @@
 package org.josh.climber.service;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.AttemptDTO;
+import org.josh.climber.DTO.attempt.response.AttemptResponseDTO;
 import org.josh.climber.DTOMapper.AttemptDTOMapper;
 import org.josh.climber.model.AttemptModel;
 import org.josh.climber.repository.AttemptRepository;
@@ -23,26 +23,26 @@ public class AttemptService {
         this.mapper = mapper;
     }
 
-    public AttemptDTO findByAttemptId(Long attemptId){
+    public AttemptResponseDTO findByAttemptId(Long attemptId){
         AttemptModel attempt = attemptRepo.findByAttemptId(attemptId)
                 .orElseThrow(() -> new RuntimeException("Attempt not found: " + attemptId));
         return mapper.toDTO(attempt);
     }
 
-    public List<AttemptDTO> getAllAttempts(){
+    public List<AttemptResponseDTO> getAllAttempts(){
         return attemptRepo.findAll()
                 .stream()
                 .map(mapper::toDTO)
                 .toList();
     }
 
-    public AttemptDTO createAttempt(AttemptDTO dto){
+    public AttemptResponseDTO createAttempt(AttemptResponseDTO dto){
         AttemptModel attempt = mapper.toEntity(dto);
         AttemptModel saved = attemptRepo.save(attempt);
         return mapper.toDTO(saved);
     }
 
-    public AttemptDTO updateAttempt(Long attemptId, @Valid AttemptDTO attempt) {
+    public AttemptResponseDTO updateAttempt(Long attemptId, @Valid AttemptResponseDTO attempt) {
         AttemptModel existing = attemptRepo.findByAttemptId(attemptId)
                 .orElseThrow(() -> new RuntimeException("Attempt not found: " + attemptId));
 

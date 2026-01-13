@@ -1,14 +1,14 @@
 package org.josh.climber.DTOMapper;
 
-import org.josh.climber.DTO.AttemptDTO;
+import org.josh.climber.DTO.attempt.response.AttemptResponseDTO;
 import org.josh.climber.model.AttemptModel;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AttemptDTOMapper {
 
-    public AttemptDTO toDTO(AttemptModel attempt){
-        return new AttemptDTO(
+    public AttemptResponseDTO toDTO(AttemptModel attempt){
+        return new AttemptResponseDTO(
                 attempt.getAttemptId(),
                 attempt.getAttemptTime(),
                 attempt.getNotes(),
@@ -16,7 +16,7 @@ public class AttemptDTOMapper {
         );
     }
 
-    public AttemptModel toEntity(AttemptDTO dto){
+    public AttemptModel toEntity(AttemptResponseDTO dto){
         return AttemptModel.builder()
                 .attemptTime(dto.attemptTime())
                 .notes(dto.notes())

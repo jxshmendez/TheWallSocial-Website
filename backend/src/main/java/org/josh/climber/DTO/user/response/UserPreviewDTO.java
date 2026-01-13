@@ -1,4 +1,4 @@
-package org.josh.climber.DTO;
+package org.josh.climber.DTO.user.response;
 
 public record UserPreviewDTO(
         Long userId,

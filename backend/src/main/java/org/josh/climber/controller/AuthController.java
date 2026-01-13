@@ -1,6 +1,6 @@
 package org.josh.climber.controller;
 
-import org.josh.climber.DTO.AuthRequestDTO;
+import org.josh.climber.DTO.auth.request.AuthRequestDTO;
 import org.josh.climber.model.UserModel;
 import org.josh.climber.model.UserRole;
 import org.josh.climber.repository.UserRepository;

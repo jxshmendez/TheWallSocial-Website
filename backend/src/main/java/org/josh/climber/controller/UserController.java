@@ -1,11 +1,10 @@
 package org.josh.climber.controller;
 
 import jakarta.validation.Valid;
-import org.josh.climber.DTO.SessionDTO;
-import org.josh.climber.DTO.UserDTO;
-import org.josh.climber.DTO.UserPreviewDTO;
+import org.josh.climber.DTO.session.response.SessionDTO;
+import org.josh.climber.DTO.user.response.UserDTO;
+import org.josh.climber.DTO.user.response.UserPreviewDTO;
 import org.josh.climber.service.UserService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -47,11 +46,6 @@ public class UserController {
     @GetMapping("/username/{username}/sessions")
     public List<SessionDTO> getSessionByUser(@PathVariable String username){
         return userService.getSessionByUser(username);
-    }
-
-    @PostMapping
-    public UserDTO createUser(@RequestBody UserDTO user){
-        return userService.createUser(user);
     }
 
     @PutMapping("/{userId}")

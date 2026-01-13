@@ -1,6 +1,6 @@
 package org.josh.climber.DTOMapper;
 
-import org.josh.climber.DTO.RouteDTO;
+import org.josh.climber.DTO.route.response.RouteDTO;
 import org.josh.climber.model.RouteModel;
 import org.springframework.stereotype.Component;
 

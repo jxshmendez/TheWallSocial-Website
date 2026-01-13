@@ -2,7 +2,7 @@ package org.josh.climber.service;
 
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-import org.josh.climber.DTO.FollowDTO;
+import org.josh.climber.DTO.follow.response.FollowDTO;
 import org.josh.climber.DTOMapper.FollowDTOMapper;
 import org.josh.climber.model.FollowModel;
 import org.josh.climber.model.UserModel;
@@ -18,10 +18,12 @@ public class FollowService {
 
     private final FollowRepository repo;
     private final UserRepository userRepo;
+    private final FollowDTOMapper followDTOMapper;
 
-    public FollowService(FollowRepository repo, UserRepository userRepo) {
+    public FollowService(FollowRepository repo, UserRepository userRepo, FollowDTOMapper followDTOMapper) {
         this.repo = repo;
         this.userRepo = userRepo;
+        this.followDTOMapper = followDTOMapper;
     }
 
     @Transactional
@@ -72,7 +74,7 @@ public class FollowService {
                 .findByFollower_UserId(userId);
 
         return follows.stream()
-                .map(FollowDTOMapper::toDTO)
+                .map(followDTOMapper::toDTO)
                 .toList();
     }
 
@@ -84,7 +86,7 @@ public class FollowService {
                 .findByFollowing_UserId(userId);
 
         return followers.stream()
-                .map(FollowDTOMapper::toDTO)
+                .map(followDTOMapper::toDTO)
                 .toList();
     }
 }

@@ -1,4 +1,4 @@
-package org.josh.climber.DTO.posts;
+package org.josh.climber.DTO.posts.response;
 
 import org.josh.climber.model.posts.Visibility;
 

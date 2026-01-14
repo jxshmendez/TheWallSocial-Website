@@ -61,18 +61,24 @@ export default function HomePage() {
             </section>
 
             {/* Community Section */}
-            <section className={"min-h-screen bg-gradient-to-br from-gray-100 to-gray-50 flex flex-col items-center justify-center px-4 relative overflow-hidden border-t border-gray-200"}>
+            <section 
+                className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-50 flex flex-col items-center justify-center px-4 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+                style={{backgroundImage: 'url(/Homepage.png)'}}
+            >
+                {/* Dark overlay to ensure text readability */}
+                <div className="absolute inset-0 bg-gray-900/40"></div>
+                
                 {/* Decorative elements */}
-                <div className="absolute top-0 left-0 w-full h-full opacity-30">
+                <div className="absolute top-0 left-0 w-full h-full opacity-30 z-[1]">
                     <div className="absolute top-20 right-20 w-64 h-64 bg-[#ff5317]/10 rounded-full blur-2xl"></div>
                     <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#ff5317]/10 rounded-full blur-2xl"></div>
                 </div>
                 
                 <div className="relative z-10 text-center space-y-6">
-                    <h2 className={"text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 text-center"}>
+                    <h2 className={"text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white text-center"}>
                         Create A Community
                     </h2>
-                    <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mt-6">
+                    <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mt-6">
                         Join other climbers sharing routes, achievements, and experiences. Build your climbing network and grow together.
                     </p>
                 </div>

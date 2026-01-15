@@ -1,3 +1,5 @@
+import './FeaturesPage.css';
+
 export default function FeaturesPage() {
     const features = [
         {
@@ -19,15 +21,15 @@ export default function FeaturesPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pt-20 pb-20" style={{fontFamily: '"Geist", sans-serif'}}>
+        <div className="min-h-screen bg-[#eed9c4] pt-20 pb-20" style={{fontFamily: '"Geist", sans-serif'}}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16 mt-12">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#ff5317] mb-4" style={{fontWeight: 800}}>
-                        Features
+                        FEATURES
                     </h1>
                     <p className="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto" style={{fontWeight: 400}}>
-                        Everything you need to elevate your climbing experience
+                         
                     </p>
                 </div>
 
@@ -36,7 +38,7 @@ export default function FeaturesPage() {
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200/50"
+                            className="group glass-card p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2"
                         >
                             <h3 className="text-xl sm:text-2xl text-gray-900 mb-3" style={{fontWeight: 700}}>
                                 {feature.title}
@@ -50,13 +52,10 @@ export default function FeaturesPage() {
 
                 {/* Coming Soon Section */}
                 <div className="mt-16 text-center">
-                    <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 sm:p-12 text-white shadow-xl">
+                    <div className="group glass-card rounded-2xl p-8 sm:p-12 text-black shadow-xl">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4" style={{fontWeight: 700}}>
-                            Mobile App Coming Soon
+                            MOBILE APP UNDER DEVELOPMENT
                         </h2>
-                        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto" style={{fontWeight: 400}}>
-                            All these features and more will be available in our mobile app. Stay tuned for updates!
-                        </p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,25 @@
+.about-image-container {
+    width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: black;
+}
+
+.about-image-wrapper {
+    width: 200%;
+    max-width: none;
+}
+
+@media (min-width: 768px) {
+    .about-image-wrapper {
+        width: 100%;
+    }
+}
+
+.about-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}

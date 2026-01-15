@@ -3,16 +3,20 @@
     overflow-x: auto;
     overflow-y: hidden;
     background: black;
+    scroll-behavior: smooth;
 }
 
 .about-image-wrapper {
-    width: 200%;
+    width: 300%;
     max-width: none;
+    transform: translateX(-33.33%);
+    /* Centers the middle third of the image (which is 33.33% of 300% = 100% visible area) */
 }
 
 @media (min-width: 768px) {
     .about-image-wrapper {
         width: 100%;
+        transform: translateX(0);
     }
 }
 

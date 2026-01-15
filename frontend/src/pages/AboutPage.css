@@ -1,16 +1,15 @@
 .about-image-container {
     width: 100vw;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
     background: black;
-    scroll-behavior: smooth;
 }
 
 .about-image-wrapper {
-    width: 300%;
+    width: 270%;
     max-width: none;
-    transform: translateX(-33.33%);
-    /* Centers the middle third of the image (which is 33.33% of 300% = 100% visible area) */
+    transform: translateX(-31.48%);
+    /* Centers the middle portion of the image (shifts left by 85% of container to show middle 100% of 270% image) */
 }
 
 @media (min-width: 768px) {

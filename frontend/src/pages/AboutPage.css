@@ -6,7 +6,7 @@
 }
 
 .about-image-wrapper {
-    width: 270%;
+    width: 240%;
     max-width: none;
     transform: translateX(-31.48%);
     /* Centers the middle portion of the image (shifts left by 85% of container to show middle 100% of 270% image) */

@@ -42,22 +42,28 @@ export default function HomePage() {
             </section>
 
             {/* Track, Connect, Climb Section */}
-            <section className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center px-4 relative overflow-hidden"
+            <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden bg-cover bg-center bg-no-repeat"
             style={{backgroundImage: 'url(/HomepageSection2.png)'}}
             >
                 {/* Dark overlay to ensure text readability */}
                 <div className="absolute inset-0 bg-gray-900/40"></div>
                 
-                <div className="relative z-10">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white text-center space-y-4" id="trackText">
+                <div className="relative z-10 flex flex-col items-center">
+                    <img 
+                        src="/Climb Tab.svg" 
+                        alt="Performance Tab"
+                        className="w-[380px] h-[610px] sm:w-[550px] sm:h-[738px] md:w-[550px] md:h-[920px] block mb-0"
+                    />
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white text-center -mt-24 sm:-mt-32 md:-mt-40 leading-none" id="trackText">
                         <span className="inline-block mr-2 sm:mr-4 hover:scale-110 transition-transform duration-300 cursor-default">Track,</span>
                         <span className="inline-block mr-2 sm:mr-4 hover:scale-110 transition-transform duration-300 cursor-default">Connect.</span>
                         <span className="inline-block hover:scale-110 transition-transform duration-300 cursor-default">Climb</span>
                     </h2>
-                    <p className="mt-8 text-gray-300 text-center text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+                    <p className="mt-4 text-gray-300 text-center text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
                         The platform for climbers to track their progress, connect with the community, and push their limits.
                     </p>
                 </div>
+                
             </section>
 
             {/* Community Section */}

@@ -43,10 +43,16 @@ export default function HomePage() {
 
             {/* Track, Connect, Climb Section */}
             <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden bg-cover bg-center bg-no-repeat"
-            style={{backgroundImage: 'url(/HomepageSection2.png)'}}
+            style={{
+                backgroundImage: 'url(/HomepageSection2.png)',
+                minHeight: '100vh',
+                minHeight: '-webkit-fill-available',
+                marginTop: 'calc(-1 * env(safe-area-inset-top))',
+                paddingTop: 'env(safe-area-inset-top)'
+            }}
             >
                 {/* Dark overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-gray-900/40"></div>
+                <div className="absolute inset-0 bg-gray-900/40" style={{top: 0}}></div>
                 
                 <div className="relative z-10 flex flex-col items-center">
                     <img 

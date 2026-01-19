@@ -9,7 +9,7 @@ export default function HomePage() {
             {/* Hero Section */}
             <section className={"min-h-screen flex flex-col items-center justify-center px-4 relative bg-gradient-to-b from-gray-50 via-gray-100/50 to-gray-50"}>
                 {/* Decorative background elements */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none bg-[#eed9c4]">
+                <div className="absolute inset-0 overflow-hidden pointer-events-none bg-[#EDE8D1]">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-[#ff5317]/5 rounded-full blur-3xl"></div>
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-300/20 rounded-full blur-3xl"></div>
                 </div>

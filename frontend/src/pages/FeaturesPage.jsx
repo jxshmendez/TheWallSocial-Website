@@ -21,7 +21,7 @@ export default function FeaturesPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#eed9c4] pt-20 pb-20" style={{fontFamily: '"Geist", sans-serif'}}>
+        <div className="min-h-screen bg-[#EDE8D1] pt-20 pb-20" style={{fontFamily: '"Geist", sans-serif'}}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16 mt-12">

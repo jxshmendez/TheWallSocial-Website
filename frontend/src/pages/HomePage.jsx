@@ -15,27 +15,20 @@ export default function HomePage() {
                 </div>
                 
                 <div className="relative z-10 text-center space-y-6">
-                    <h1 className={"anton-sc-regular text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[8rem] font-bold text-center leading-tight"}>
-                        <span className="text-gray-800 drop-shadow-lg">FOR THOSE WHO LIVE ON THE</span>
+                    <h1 className="anton-sc-regular text-2xl sm:text-2xl md:text-8xl lg:text-9xl xl:text-[5rem] font-bold text-[#292A23] text-center drop-shadow-lg">
+                        FOR THOSE WHO LIVE ON THE
                     </h1>
-                    <h1 className="anton-sc-regular text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] pb-2 md:pb-4 font-bold text-[#ff5317] text-center leading-tight drop-shadow-lg">
+                    <h1 className="anton-sc-regular text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] md:pb-4 font-bold text-[#E7692F] text-center drop-shadow-lg">
                         WALL
                     </h1>
-                    <p className="text-gray-600 font-semibold text-sm sm:text-base md:text-lg tracking-wide lacquer-regular xl:text-3xl">built for climbers, by CLIMBERS</p>
+                    <p className="inter-regular text-sm sm:text-base md:text-lg tracking-wide ">BUILT FOR CLIMBERS BY CLIMBERS</p>
 
                     <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <NavLink 
-                            to={"/features"} 
-                            className="px-8 py-4 border-2 border-[#ff5317] text-[#ff5317] text-sm sm:text-base font-semibold rounded-full hover:bg-[#ff5317] hover:text-white transition-all duration-300 hover:scale-105"
+                            to={"/waitlist"}
+                            className="anton-sc-light px-8 py-4 tracking-wide border-2 border-[#292A23] text-[#292A23] text-sm sm:text-base font-semibold rounded-full hover:bg-[#E7692F] hover:border-[#E7692F] transition-all duration-300 hover:scale-105"
                         >
-                            FEATURES
-                        </NavLink>
-                        <NavLink 
-                            to={"/about"} 
-                            className="group relative px-8 py-4 bg-gradient-to-r from-[#ff5317] to-[#e44b15] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 overflow-hidden"
-                        >
-                            <span className="relative z-10">LEARN</span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#e44b15] to-[#ff5317] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            JOIN THE WAITLIST
                         </NavLink>
                     </div>
                 </div>

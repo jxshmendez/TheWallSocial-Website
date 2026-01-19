@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-            <footer className="flex flex-col items-center justify-center w-full py-8 sm:py-10 bg-white relative overflow-hidden border-t border-gray-200">
+            <footer className="flex flex-col items-center justify-center w-full py-8 sm:py-2 bg-white relative overflow-hidden border-t border-gray-200">
                 <div className="relative z-10 text-center space-y-3 px-4">
                     <h1 className={"font-bold text-xl sm:text-2xl border-b-2 border-gray-300 pb-2 pt-2 inline-block text-gray-900"}>
                         THE WALL
